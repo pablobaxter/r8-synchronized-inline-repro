@@ -12,6 +12,8 @@ void com.example.r8repro.MainActivity.onCreate(android.os.Bundle) failed to veri
 ## Run
 
 ```bash
+# Generate your own key and use "android" as the password
+keytool -genkey -v -keystore repro.jks -keyalg RSA -keysize 2048 -validity 10000 -alias repro
 ./gradlew :app:assembleRelease [-Pr8.version=<version>]
 adb install -r app/build/outputs/apk/release/app-release.apk
 adb shell am start -n com.example.r8repro/.MainActivity
